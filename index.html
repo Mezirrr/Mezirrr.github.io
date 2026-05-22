@@ -9,141 +9,273 @@
         body { font-family: system-ui, -apple-system, sans-serif; }
         .card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        .page { display: none; }
+        .page.active { display: block; }
+        .nav-link { transition: color 0.2s ease; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active { color: #fff; font-weight: 500; }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-200">
     <!-- Header -->
-    <header class="border-b border-zinc-800">
+    <header class="border-b border-zinc-800 sticky top-0 bg-zinc-950 z-50">
         <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
                 <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center">
-                    <span class="text-zinc-950 font-bold text-xl">EC</span>
+                    <span class="text-zinc-950 font-bold text-xl">EE</span>
                 </div>
                 <div>
                     <div class="font-semibold text-xl tracking-tight">EnhancementsExplained</div>
-                    <div class="text-[10px] text-zinc-500 -mt-1">BY [YOUR NAME]</div>
                 </div>
             </div>
             <nav class="flex items-center gap-8 text-sm">
-                <a href="#services" class="hover:text-white transition-colors">Services</a>
-                <a href="#how" class="hover:text-white transition-colors">How it works</a>
-                <a href="#legal" class="hover:text-white transition-colors">Legal</a>
+                <a href="#" onclick="showPage('services'); return false;" class="nav-link">Services</a>
+                <a href="#" onclick="showPage('how'); return false;" class="nav-link">How it works</a>
+                <a href="#" onclick="showPage('payments'); return false;" class="nav-link">Payments</a>
+                <a href="#" onclick="showPage('legal'); return false;" class="nav-link">Legal</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
-    <div class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
-        <div class="inline-block px-3 py-1 bg-zinc-900 rounded-full text-xs tracking-[2px] mb-6">ADVANCED PHARMACOLOGY COACHING</div>
-        <h1 class="text-6xl font-semibold tracking-tighter leading-none mb-4">Complete Pharmacology<br>& Transformation Coaching</h1>
-        <p class="max-w-md mx-auto text-zinc-400 text-lg">One-on-one guidance for advanced body optimization through strategic pharmacology.</p>
-    </div>
-
-    <!-- Services -->
-    <div id="services" class="max-w-6xl mx-auto px-6 pb-16">
-        <div class="grid md:grid-cols-3 gap-6">
+    <!-- HOME PAGE (Hero) -->
+    <div id="home" class="page active">
+        <div class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+            <div class="inline-block px-3 py-1 bg-zinc-900 rounded-full text-xs tracking-[2px] mb-6">ADVANCED PHARMACOLOGY COACHING</div>
+            <h1 class="text-6xl font-semibold tracking-tighter leading-none mb-4">Complete Pharmacology<br>& Transformation Coaching</h1>
+            <p class="max-w-md mx-auto text-zinc-400 text-lg mb-8">One-on-one guidance for advanced body optimization through strategic pharmacology.</p>
             
-            <!-- Monthly Coaching -->
-            <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
-                <div class="flex-1">
-                    <div class="inline-block px-3 py-1 bg-zinc-800 rounded-full text-xs mb-6">MOST POPULAR</div>
-                    <h3 class="text-2xl font-semibold mb-2">Monthly Coaching</h3>
-                    <div class="text-4xl font-semibold tracking-tighter mb-1">$400<span class="text-base font-normal text-zinc-500">/month</span></div>
-                    <div class="text-sm text-zinc-500 mb-6">Billed monthly • Cancel anytime</div>
-                    
-                    <ul class="space-y-3 text-sm mb-8">
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Weekly 1-on-1 calls</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Custom protocol design & adjustments</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Bloodwork analysis & optimization</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Source recommendations & harm mitigation</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> 24/7 Telegram support</li>
-                    </ul>
-                </div>
-                <a href="#payment" class="block w-full bg-white hover:bg-zinc-200 transition-colors text-zinc-950 text-center py-3.5 rounded-2xl font-medium">Start Monthly Coaching</a>
-            </div>
-
-            <!-- Protocol Design -->
-            <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
-                <div class="flex-1">
-                    <div class="inline-block px-3 py-1 bg-zinc-800 rounded-full text-xs mb-6">ONE-TIME SETUP</div>
-                    <h3 class="text-2xl font-semibold mb-2">Protocol Design</h3>
-                    <div class="text-4xl font-semibold tracking-tighter mb-1">$250</div>
-                    <div class="text-sm text-zinc-500 mb-6">One-time payment</div>
-                    
-                    <ul class="space-y-3 text-sm mb-8">
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Fully customized protocol</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Dosing schedule & timing</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Bloodwork interpretation</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Side-effect management plan</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> 30-day follow-up support</li>
-                    </ul>
-                </div>
-                <a href="#payment" class="block w-full bg-white hover:bg-zinc-200 transition-colors text-zinc-950 text-center py-3.5 rounded-2xl font-medium">Get Protocol Design</a>
-            </div>
-
-            <!-- Source List -->
-            <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
-                <div class="flex-1">
-                    <div class="inline-block px-3 py-1 bg-zinc-800 rounded-full text-xs mb-6">INSTANT ACCESS</div>
-                    <h3 class="text-2xl font-semibold mb-2">Source List</h3>
-                    <div class="text-4xl font-semibold tracking-tighter mb-1">$100</div>
-                    <div class="text-sm text-zinc-500 mb-6">One-time payment</div>
-                    
-                    <ul class="space-y-3 text-sm mb-8">
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Verified research chemical sources</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Quality & purity guidelines</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Storage & handling instructions</li>
-                        <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Updated quarterly</li>
-                    </ul>
-                </div>
-                <a href="#payment" class="block w-full bg-white hover:bg-zinc-200 transition-colors text-zinc-950 text-center py-3.5 rounded-2xl font-medium">Get Source List</a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="showPage('services')" class="px-8 py-3.5 bg-white text-zinc-950 rounded-2xl font-medium hover:bg-zinc-200 transition-colors">View Services</button>
+                <button onclick="showPage('how')" class="px-8 py-3.5 border border-zinc-700 hover:bg-zinc-900 rounded-2xl font-medium transition-colors">How it works</button>
             </div>
         </div>
     </div>
 
-    <!-- How it works -->
-    <div id="how" class="max-w-4xl mx-auto px-6 py-12 border-t border-zinc-800">
-        <h2 class="text-3xl font-semibold tracking-tight mb-8 text-center">How it works</h2>
-        <div class="grid md:grid-cols-3 gap-8 text-sm">
-            <div>
-                <div class="font-medium mb-2">1. Choose your service</div>
-                <div class="text-zinc-400">Select monthly coaching, protocol design, or the source list.</div>
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <div class="max-w-6xl mx-auto px-6 pt-12 pb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-semibold tracking-tight mb-3">Our Services</h2>
+                <p class="text-zinc-400 max-w-md mx-auto">Choose the level of support that fits your goals.</p>
             </div>
-            <div>
-                <div class="font-medium mb-2">2. Message on Telegram</div>
-                <div class="text-zinc-400">Send your choice and preferred payment method.</div>
-            </div>
-            <div>
-                <div class="font-medium mb-2">3. Get started</div>
-                <div class="text-zinc-400">Receive your materials or schedule your first call within 24 hours.</div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Monthly Coaching -->
+                <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
+                    <div class="flex-1">
+                        <div class="inline-block px-3 py-1 bg-zinc-800 rounded-full text-xs mb-6">MOST POPULAR</div>
+                        <h3 class="text-2xl font-semibold mb-2">Monthly Coaching</h3>
+                        <div class="text-4xl font-semibold tracking-tighter mb-1">$400<span class="text-base font-normal text-zinc-500">/month</span></div>
+                        <div class="text-sm text-zinc-500 mb-6">Billed monthly • Cancel anytime</div>
+                        
+                        <ul class="space-y-3 text-sm mb-8">
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Weekly 1-on-1 calls</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Custom protocol design & adjustments</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Bloodwork analysis & optimization</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Source recommendations & harm mitigation</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> 24/7 Telegram support</li>
+                        </ul>
+                    </div>
+                    <button onclick="showPage('payments')" class="block w-full bg-white hover:bg-zinc-200 transition-colors text-zinc-950 text-center py-3.5 rounded-2xl font-medium">Start Monthly Coaching</button>
+                </div>
+
+                <!-- Protocol Design -->
+                <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
+                    <div class="flex-1">
+                        <div class="inline-block px-3 py-1 bg-zinc-800 rounded-full text-xs mb-6">ONE-TIME SETUP</div>
+                        <h3 class="text-2xl font-semibold mb-2">Protocol Design</h3>
+                        <div class="text-4xl font-semibold tracking-tighter mb-1">$250</div>
+                        <div class="text-sm text-zinc-500 mb-6">One-time payment</div>
+                        
+                        <ul class="space-y-3 text-sm mb-8">
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Fully customized protocol</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Dosing schedule & timing</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Bloodwork interpretation</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Side-effect management plan</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> 30-day follow-up support</li>
+                        </ul>
+                    </div>
+                    <button onclick="showPage('payments')" class="block w-full bg-white hover:bg-zinc-200 transition-colors text-zinc-950 text-center py-3.5 rounded-2xl font-medium">Get Protocol Design</button>
+                </div>
+
+                <!-- Source List -->
+                <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col">
+                    <div class="flex-1">
+                        <div class="inline-block px-3 py-1 bg-zinc-800 rounded-full text-xs mb-6">INSTANT ACCESS</div>
+                        <h3 class="text-2xl font-semibold mb-2">Source List</h3>
+                        <div class="text-4xl font-semibold tracking-tighter mb-1">$100</div>
+                        <div class="text-sm text-zinc-500 mb-6">One-time payment</div>
+                        
+                        <ul class="space-y-3 text-sm mb-8">
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Verified research chemical sources</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Quality & purity guidelines</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Storage & handling instructions</li>
+                            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-1">•</span> Updated quarterly</li>
+                        </ul>
+                    </div>
+                    <button onclick="showPage('payments')" class="block w-full bg-white hover:bg-zinc-200 transition-colors text-zinc-950 text-center py-3.5 rounded-2xl font-medium">Get Source List</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Payment -->
-    <div id="payment" class="max-w-2xl mx-auto px-6 py-12 border-t border-zinc-800 text-center">
-        <h2 class="text-3xl font-semibold tracking-tight mb-4">Payment</h2>
-        <p class="text-zinc-400 mb-8">All payments are handled directly via Telegram for privacy and speed.</p>
-        
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-left">
-            <div class="font-medium mb-4">Accepted methods:</div>
-            <div class="space-y-2 text-sm">
-                <div>Venmo • PayPal • Crypto (USDT / BTC / ETH)</div>
+    <!-- HOW IT WORKS PAGE -->
+    <div id="how" class="page">
+        <div class="max-w-6xl mx-auto px-6 pt-12 pb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-semibold tracking-tight mb-3">How it works</h2>
+                <p class="text-zinc-400">Simple, private, and fast.</p>
             </div>
-            <div class="mt-6 pt-6 border-t border-zinc-800">
-                <a href="https://t.me/yourtelegram" class="inline-block bg-white text-zinc-950 px-8 py-3 rounded-2xl font-medium hover:bg-zinc-200 transition-colors">Message me on Telegram</a>
+            
+            <!-- Steps -->
+            <div class="grid md:grid-cols-3 gap-8 text-sm max-w-4xl mx-auto mb-16">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                    <div class="font-medium mb-2 text-lg">1. Choose your service</div>
+                    <div class="text-zinc-400">Select monthly coaching, protocol design, or the source list from the Services page.</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                    <div class="font-medium mb-2 text-lg">2. Message on Telegram</div>
+                    <div class="text-zinc-400">Send your choice and preferred payment method directly to me.</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                    <div class="font-medium mb-2 text-lg">3. Get started</div>
+                    <div class="text-zinc-400">Receive your materials or schedule your first call within 24 hours.</div>
+                </div>
             </div>
-            <div class="text-xs text-zinc-500 mt-4">Include your chosen service in the message</div>
+
+            <!-- Testimonials with 1:1 image columns -->
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-2xl font-semibold tracking-tight mb-8 text-center">What clients are saying</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                        <img src="https://picsum.photos/id/1011/400/400" alt="Testimonial 1" class="w-full aspect-square object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-zinc-300">"The monthly coaching completely transformed my approach. Bloodwork has never been better."</p>
+                            <div class="text-xs text-zinc-500 mt-3">— Alex, 28</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                        <img src="https://picsum.photos/id/1005/400/400" alt="Testimonial 2" class="w-full aspect-square object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-zinc-300">"Protocol design was spot on. Everything was explained clearly and the results came fast."</p>
+                            <div class="text-xs text-zinc-500 mt-3">— Jordan, 31</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+                        <img src="https://picsum.photos/id/201/400/400" alt="Testimonial 3" class="w-full aspect-square object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-zinc-300">"The source list alone was worth it. Saved me so much time and stress."</p>
+                            <div class="text-xs text-zinc-500 mt-3">— Taylor, 25</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center text-xs text-zinc-500 mt-6">Replace these placeholder images with your own 1:1 testimonial photos.</p>
+            </div>
         </div>
     </div>
 
-    <!-- Legal -->
-    <div id="legal" class="max-w-4xl mx-auto px-6 py-12 border-t border-zinc-800 text-xs text-zinc-500">
-        <p>All information provided is for theoretical, academic, and research purposes only. Nothing on this site is intended as medical advice. All substances discussed are for research use only and not for human consumption. Use of any information is at your own risk. Always consult a licensed physician before beginning any protocol.</p>
+    <!-- PAYMENTS PAGE -->
+    <div id="payments" class="page">
+        <div class="max-w-2xl mx-auto px-6 pt-12 pb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-semibold tracking-tight mb-3">Payments</h2>
+                <p class="text-zinc-400">All payments are handled directly via Telegram for privacy and speed.</p>
+            </div>
+            
+            <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-10 text-left">
+                <div class="font-medium mb-4 text-lg">Accepted methods:</div>
+                <div class="space-y-2 text-sm mb-8">
+                    <div>Venmo • PayPal • Crypto (USDT / BTC / ETH)</div>
+                </div>
+                
+                <div class="pt-6 border-t border-zinc-800">
+                    <a href="https://t.me/yourtelegram" target="_blank" class="inline-block w-full bg-white text-zinc-950 px-8 py-4 rounded-2xl font-medium hover:bg-zinc-200 transition-colors text-center">Message me on Telegram</a>
+                </div>
+                <div class="text-xs text-zinc-500 mt-4 text-center">Include your chosen service in the message</div>
+            </div>
+            
+            <div class="mt-8 text-center text-xs text-zinc-500">
+                Payments are processed manually for maximum privacy. You will receive confirmation within 24 hours.
+            </div>
+        </div>
     </div>
 
-    <footer class="text-center text-xs text-zinc-600 py-8">
+    <!-- LEGAL PAGE -->
+    <div id="legal" class="page">
+        <div class="max-w-4xl mx-auto px-6 pt-12 pb-16">
+            <h2 class="text-3xl font-semibold tracking-tight mb-8 text-center">Legal & Disclaimer</h2>
+            
+            <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-10 text-sm text-zinc-400 leading-relaxed">
+                <p class="mb-6">All information provided is for theoretical, academic, and research purposes only. Nothing on this site is intended as medical advice. All substances discussed are for research use only and not for human consumption.</p>
+                
+                <p class="mb-6">Use of any information is at your own risk. Always consult a licensed physician before beginning any protocol.</p>
+                
+                <p>This website and its content are provided "as is" without warranty of any kind. We are not responsible for any outcomes resulting from the use of the information presented here.</p>
+            </div>
+            
+            <div class="text-center mt-8">
+                <button onclick="showPage('home')" class="text-sm text-zinc-400 hover:text-white">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-xs text-zinc-600 py-8 border-t border-zinc-800">
         © EnhancementsExplained • All rights reserved
     </footer>
+
+    <script>
+        // Tailwind script already loaded via CDN
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+                page.style.display = 'none';
+            });
+            
+            // Show the selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                targetPage.classList.add('active');
+            }
+            
+            // Update active nav link styling (optional visual feedback)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to top when changing pages
+            window.scrollTo(0, 0);
+        }
+        
+        // Initialize - show home page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const homePage = document.getElementById('home');
+            if (homePage) {
+                homePage.style.display = 'block';
+                homePage.classList.add('active');
+            }
+            
+            // Optional: highlight current nav if needed
+        });
+        
+        // Keyboard support: press Escape to go back to home
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                showPage('home');
+            }
+        });
+    </script>
 </body>
 </html>
